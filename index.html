@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mukesh Revanth | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; }
+    header {
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+    nav ul li { margin: 0 1rem; }
+    nav ul li a { color: white; text-decoration: none; }
+    nav ul li a.active { border-bottom: 2px solid white; }
+    .home-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 8rem 2rem 4rem;
+    }
+    .home-text h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .home-photo img {
+      width: 200px; height: 200px; border-radius: 50%;
+      object-fit: cover; box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .typed-text, .cursor {
+      color: #ffcc00; font-weight: bold;
+    }
+    .cursor {
+      display: inline-block; width: 2px; background-color: #ffcc00;
+      animation: blink 0.7s steps(1) infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .skills-list li {
+      background-color: #4e4376; color: white;
+      padding: 0.5rem 1rem; border-radius: 20px;
+    }
+    .button {
+      background: #2b5876; color: white;
+      padding: 0.5rem 1rem; text-decoration: none;
+      border-radius: 5px; display: inline-block; margin-top: 1rem;
+    }
+    .scroll-top {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #4e4376; color: white;
+      padding: 10px; border-radius: 50%;
+      cursor: pointer; display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <h1>Mukesh Revanth</h1>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="projects.html" target="_blank">Projects</a></li>
+        <li><a href="skills.html" target="_blank">Skills</a></li>
+        <li><a href="contact.html" target="_blank">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" data-aos="fade-up">
+    <div class="home-container">
+      <div class="home-text">
+        <h2>Hi, I'm Mukesh Revanth</h2>
+        <p>I’m a <span class="typed-text"></span><span class="cursor">|</span></p>
+        <a href="Resume4233_final.pdf" class="button" download>Download Resume</a>
+      </div>
+      <div class="home-photo">
+        <img src="revanth1.png" alt="Profile Photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m a passionate developer who loves building web apps.
+      I am a final-year B.Tech student specializing in Artificial Intelligence 
+      and Machine Learning, with strong skills in Java, Python, and web development.
+      I’ve gained hands-on experience through internships and projects in data analytics,
+      dashboard creation, and full-stack development. Passionate about solving real-world problems
+      with technology, I’m eager to contribute to innovative teams and continue learning.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mukesh Revanth. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll Top -->
+  <div class="scroll-top" id="scroll-top" onclick="scrollToTop()">↑</div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 1000 });
+
+    const typedText = document.querySelector('.typed-text');
+    const words = ["Full Stack Developer", "Designer", "Coder"];
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+
+    function type() {
+      let currentWord = words[wordIndex];
+      typedText.textContent = isDeleting
+        ? currentWord.substring(0, charIndex--)
+        : currentWord.substring(0, charIndex++);
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true; setTimeout(type, 1000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false; wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? 40 : 120);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", type);
+
+    // Scroll to top button
+    window.addEventListener('scroll', () => {
+      document.getElementById("scroll-top").style.display =
+        window.scrollY > 200 ? "block" : "none";
+    });
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // Active nav link highlight
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        if (pageYOffset >= section.offsetTop - 120) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
