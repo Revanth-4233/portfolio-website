@@ -26,3 +26,28 @@ It is fully responsive, visually appealing, and includes smooth animations power
 ---
 
 ## 📂 Project Structure
+
+portfolio/
+│── index.html # Main homepage
+│── style.css # Styling for layout & animations
+│── projects.html # Projects showcase page
+│── skills.html # Skills listing page
+│── contact.html # Contact form / details
+│── revanth1.png # Profile picture
+│── final_resume33.pdf # Downloadable resume
+
+📬 Contact
+
+Name: Mukesh Revanth
+
+LinkedIn: [Your LinkedIn Link]
+
+GitHub: [Your GitHub Link]
+
+Email: your.email@example.com
+
+
+If you want, I can also **embed a preview image** of your website in the README so that visitors on GitHub see a screenshot instantly. That will make it more engaging.  
+
+Do you want me to add that screenshot section?
+
