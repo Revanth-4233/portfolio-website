@@ -40,11 +40,11 @@ portfolio/
 
 Name: Mukesh Revanth
 
-LinkedIn: [Your LinkedIn Link]
+LinkedIn: https://www.linkedin.com/in/mukesh-revanth-3529b329a/
 
-GitHub: [Your GitHub Link]
+GitHub: https://github.com/Revanth-4233
 
-Email: your.email@example.com
+Email: mukeshrevanth94@gmail.com
 
 
 If you want, I can also **embed a preview image** of your website in the README so that visitors on GitHub see a screenshot instantly. That will make it more engaging.  
